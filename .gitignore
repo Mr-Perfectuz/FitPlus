@@ -3,3 +3,5 @@ node_modules
 
 ## member = user
 ## memberController = userController
+## mb = user for schema
+## ONPAUSE = BLOCKED

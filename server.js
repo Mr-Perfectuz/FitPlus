@@ -5,8 +5,7 @@ const http = require("http");
 const mongodb = require("mongodb");
 
 let db;
-const connectionString =
-  "mongodb+srv://ziyodovanvar1999:v16c41PgWTNhPSWz@mit.kpqoeyc.mongodb.net/VivaTour";
+const connectionString = process.env.MONGO_URL;
 
 // mongodb.set("strictQuery", false);
 // const connectionString = process.env.MONGO_URL;
@@ -26,7 +25,7 @@ mongodb.connect(
       const app = require("./app");
       const server = http.createServer(app);
 
-      let PORT = 3001;
+      let PORT = process.env.PORT || 3005;
       server.listen(PORT, function () {
         console.log(
           `The server is running on port ${PORT}, http://localhost/${PORT}:`

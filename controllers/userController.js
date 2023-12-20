@@ -13,25 +13,29 @@ userController.signup = async (req, res) => {
     const user = new User();
     const new_user = await user.signupData(data);
 
-    res.send("signup sahifasi");
-  } catch (error) {
-    console.log("POST cont.signup");
-    throw error;
+    res.json({ state: "success", data: new_user });
+  } catch (err) {
+    console.log("ERROR POST cont.signup");
+    res.json({ state: "fail", message: err.massage });
   }
 };
 
-userController.login = (req, res) => {
+userController.login = async (req, res) => {
   try {
     console.log("POST cont.login");
-    res.send("login sahifasi");
-  } catch (error) {
-    console.log("POST cont.login");
-    throw error;
+    const data = req.body;
+    const user = new User();
+    const result = await user.loginData(data);
+
+    res.json({ state: "success", data: result });
+  } catch (err) {
+    res.json({ state: "fail", message: err.message });
+    console.log(err.message);
   }
 };
 
 userController.logout = (req, res) => {
   console.log("GET cont.logout");
 
-  res.send("logout sahifasi");
+  res.send("ERROR logout sahifasi");
 };

@@ -35,8 +35,8 @@ const userSchema = new mongoose.Schema(
       required: false,
       default: "ACTIVE",
       enum: {
-        values: ["BLOCKED", "ACTIVE", "DELETED"],
-        message: member_type_status,
+        values: member_type_status,
+        message: "{VALUE} is not among permitted values",
       },
     },
 
@@ -59,10 +59,10 @@ const userSchema = new mongoose.Schema(
     user_top: {
       type: String,
       required: false,
-      default: "ACTIVE",
+      default: "N",
       enum: {
-        values: ["BLOCKED", "ACTIVE", "DELETED"],
-        message: ordinary_enums,
+        values: ordinary_enums,
+        message: "{VALUE} is not among permitted values",
       },
     },
     user_views: {
@@ -73,7 +73,6 @@ const userSchema = new mongoose.Schema(
     user_comment: {
       type: String,
       required: false,
-      default: 0,
     },
     user_likes: {
       type: Number,

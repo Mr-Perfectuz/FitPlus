@@ -39,6 +39,7 @@ const userSchema = new mongoose.Schema(
         message: member_type_status,
       },
     },
+
     user_description: {
       type: String,
       required: false,

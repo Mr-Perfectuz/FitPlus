@@ -1,6 +1,7 @@
 const Definer = require("../lib/mistake");
 const UserModel = require("../schema/user.model");
 const assert = require("assert");
+const bcrypt = require("bcryptjs");
 
 class User {
   constructor() {
@@ -10,8 +11,8 @@ class User {
   async signupData(input) {
     try {
       let result;
-      //   const salt = await bcrypt.genSalt();
-      //   input.mb_password = await bcrypt.hash(input.mb_password, salt);
+      const salt = await bcrypt.genSalt();
+      input.user_password = await bcrypt.hash(input.user_password, salt);
       const new_user = new this.userModel(input);
 
       try {
@@ -37,7 +38,10 @@ class User {
 
       assert.ok(result, Definer.auth_err3);
 
-      const isMatch = input.user_password === result.user_password;
+      const isMatch = await bcrypt.compare(
+        input.user_password,
+        result.user_password
+      );
       assert.ok(isMatch, Definer.auth_err4);
 
       console.log("result:", result);

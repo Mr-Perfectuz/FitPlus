@@ -15,8 +15,8 @@ userController.signup = async (req, res) => {
 
     res.json({ state: "success", data: new_user });
   } catch (err) {
-    console.log("ERROR POST cont.signup");
-    res.json({ state: "fail", message: err.massage });
+    res.json({ state: "fail", message: err.message });
+    console.log(err.message);
   }
 };
 

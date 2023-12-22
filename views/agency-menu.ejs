@@ -1,0 +1,11 @@
+<%- include('includes/header') %>
+<h1>My Agency Page</h1>
+<% if(!user) { %>
+    <h2>Siz authenticated emassiz ! </h2>
+    <% } else { %>
+    <h2>Siz authenticated bo'lgansiz ! va 
+      <br>  sizning nickingiz <%= user.user_nick %></h2>
+      <p>Phone: <%=user.user_phone %></p>
+<% }%>
+
+<%- include('includes/footer') %>

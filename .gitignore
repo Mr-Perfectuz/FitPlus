@@ -3,5 +3,6 @@ node_modules
 
 ## member = user
 ## memberController = userController
+## restaurantController = agencyController
 ## mb = user for schema
 ## ONPAUSE = BLOCKED

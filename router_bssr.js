@@ -7,12 +7,16 @@ const agencyController = require("./controllers/agencyController");
  ****************************/
 
 // user realated routers
-router_bssr.get("/sign-up", agencyController.getsignupMyAgency);
-router_bssr.post("/sign-up", agencyController.signupProcess);
+router_bssr
+  .get("/sign-up", agencyController.getsignupMyAgency)
+  .post("/sign-up", agencyController.signupProcess);
 
-router_bssr.get("/login", agencyController.getloginMyAgency);
-router_bssr.post("/login", agencyController.loginProcess);
+router_bssr
+  .get("/login", agencyController.getloginMyAgency)
+  .post("/login", agencyController.loginProcess);
 
 router_bssr.get("/logout", agencyController.logoutProcess);
+
+router_bssr.get("/services/menu", agencyController.getMyAgencyData);
 
 module.exports = router_bssr;

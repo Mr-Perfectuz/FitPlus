@@ -73,3 +73,11 @@ agencyController.logoutProcess = (req, res) => {
 
   res.send("ERROR logout sahifasi");
 };
+
+agencyController.checkSessions = (req, res) => {
+  if (req.session?.user) {
+    res.json({ state: "sucess", data: req.session.user });
+  } else {
+    res.json({ state: "fail", message: "You are not authenticated !" });
+  }
+};

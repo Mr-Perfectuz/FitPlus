@@ -16,6 +16,7 @@ router_bssr
   .post("/login", agencyController.loginProcess);
 
 router_bssr.get("/logout", agencyController.logoutProcess);
+router_bssr.get("/check-me", agencyController.checkSessions);
 
 router_bssr.get("/services/menu", agencyController.getMyAgencyData);
 

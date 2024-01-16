@@ -2,8 +2,9 @@ node_modules
 .env
 uploads
 
-## gym = user
-## gymController = userController
+## member = user
+## memberController = userController
 ## restaurantController = gymController
-## mb = user for schema
+## mb = usr for schema
 ## ONPAUSE = BLOCKED
+## restaurant_mb_id = gym_user_id

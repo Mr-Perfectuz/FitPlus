@@ -100,7 +100,7 @@ gymController.getMyGYMProducts = async (req, res) => {
   try {
     console.log("GET: cont/getMyGYMProducts ");
     const product = new Product();
-    const data = await product.getAllProductDataResto(res.locals.member);
+    const data = await product.getAllProductDataResto(res.locals.user);
     console.log(data);
     res.render("gym-menu", { gym_data: data });
   } catch (err) {

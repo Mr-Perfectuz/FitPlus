@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const {
-  gym_type_enums,
-  gym_type_status,
+  user_type_enums,
+  user_type_status,
   ordinary_enums,
 } = require("../lib/config");
 
@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema(
       required: false,
       default: "USER",
       enum: {
-        values: gym_type_enums,
+        values: user_type_enums,
         message: "{VALUE} is not among permitted values",
       },
     },
@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema(
       required: false,
       default: "ACTIVE",
       enum: {
-        values: gym_type_status,
+        values: user_type_status,
         message: "{VALUE} is not among permitted values",
       },
     },

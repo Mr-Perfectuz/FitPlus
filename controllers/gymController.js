@@ -1,11 +1,11 @@
 const User = require("../models/User");
 
-let agencyController = module.exports;
+let gymController = module.exports;
 
-agencyController.getMyAgencyData = (req, res) => {
+gymController.getMygymData = (req, res) => {
   try {
-    console.log("GET cont.getMyAgencyData");
-    res.render("agency-menu");
+    console.log("GET cont.getMygymData");
+    res.render("gym-menu");
   } catch (err) {
     res.json({ state: "fail", message: err.message });
     console.log(err.message);
@@ -13,9 +13,9 @@ agencyController.getMyAgencyData = (req, res) => {
 };
 
 // SIGN UP //
-agencyController.getsignupMyAgency = async (req, res) => {
+gymController.getsignupMygym = async (req, res) => {
   try {
-    console.log("POST cont.getsignupMyAgency");
+    console.log("POST cont.getsignupMygym");
     res.render("signup");
   } catch (err) {
     res.json({ state: "fail", message: err.message });
@@ -23,7 +23,7 @@ agencyController.getsignupMyAgency = async (req, res) => {
   }
 };
 
-agencyController.signupProcess = async (req, res) => {
+gymController.signupProcess = async (req, res) => {
   try {
     console.log("POST cont.signupProcess");
     const data = req.body;
@@ -31,7 +31,7 @@ agencyController.signupProcess = async (req, res) => {
     const new_user = await user.signupData(data);
 
     req.session.user = new_user;
-    res.redirect("/vivaAdmin/services/menu");
+    res.redirect("/fitPlus/services/menu");
   } catch (err) {
     res.json({ state: "fail", message: err.message });
     console.log(err.message);
@@ -40,9 +40,9 @@ agencyController.signupProcess = async (req, res) => {
 
 // LOGIN //
 
-agencyController.getloginMyAgency = async (req, res) => {
+gymController.getloginMygym = async (req, res) => {
   try {
-    console.log("POST cont.getloginMyAgency");
+    console.log("POST cont.getloginMygym");
     res.render("login");
   } catch (err) {
     res.json({ state: "fail", message: err.message });
@@ -50,7 +50,7 @@ agencyController.getloginMyAgency = async (req, res) => {
   }
 };
 
-agencyController.loginProcess = async (req, res) => {
+gymController.loginProcess = async (req, res) => {
   try {
     console.log("POST cont.loginProcess");
     const data = req.body;
@@ -58,7 +58,7 @@ agencyController.loginProcess = async (req, res) => {
     const result = await user.loginData(data);
     req.session.user = result;
     req.session.save(function () {
-      res.redirect("/vivaAdmin/services/menu");
+      res.redirect("/fitPlus/services/menu");
     });
   } catch (err) {
     res.json({ state: "fail", message: err.message });
@@ -68,13 +68,13 @@ agencyController.loginProcess = async (req, res) => {
 
 // LOGOUT //
 
-agencyController.logoutProcess = (req, res) => {
+gymController.logoutProcess = (req, res) => {
   console.log("GET cont.logoutProcess");
 
   res.send("ERROR logout sahifasi");
 };
 
-agencyController.checkSessions = (req, res) => {
+gymController.checkSessions = (req, res) => {
   if (req.session?.user) {
     res.json({ state: "sucess", data: req.session.user });
   } else {

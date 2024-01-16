@@ -1,7 +1,7 @@
 {
-  "name": "vivatour",
+  "name": "fitplus",
   "version": "1.0.0",
-  "description": "This is our tour agency project ",
+  "description": "This is our tour gym project ",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

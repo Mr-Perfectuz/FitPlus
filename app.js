@@ -39,6 +39,6 @@ app.set("view engine", "ejs");
 
 // 4 Routing code
 app.use("/", router);
-app.use("/vivaAdmin", router_bssr);
+app.use("/fitPlus", router_bssr);
 
 module.exports = app;

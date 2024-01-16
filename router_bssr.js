@@ -1,6 +1,6 @@
 const express = require("express");
 const router_bssr = express.Router();
-const agencyController = require("./controllers/agencyController");
+const gymController = require("./controllers/gymController");
 
 /****************************
  *        BSSR EJS          *
@@ -8,16 +8,16 @@ const agencyController = require("./controllers/agencyController");
 
 // user realated routers
 router_bssr
-  .get("/sign-up", agencyController.getsignupMyAgency)
-  .post("/sign-up", agencyController.signupProcess);
+  .get("/sign-up", gymController.getsignupMygym)
+  .post("/sign-up", gymController.signupProcess);
 
 router_bssr
-  .get("/login", agencyController.getloginMyAgency)
-  .post("/login", agencyController.loginProcess);
+  .get("/login", gymController.getloginMygym)
+  .post("/login", gymController.loginProcess);
 
-router_bssr.get("/logout", agencyController.logoutProcess);
-router_bssr.get("/check-me", agencyController.checkSessions);
+router_bssr.get("/logout", gymController.logoutProcess);
+router_bssr.get("/check-me", gymController.checkSessions);
 
-router_bssr.get("/services/menu", agencyController.getMyAgencyData);
+router_bssr.get("/services/menu", gymController.getMygymData);
 
 module.exports = router_bssr;

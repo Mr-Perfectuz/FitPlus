@@ -77,6 +77,7 @@ class Product {
     try {
       data.gym_user_id = shapeIntoMongoseObjectIdn(user._id);
       console.log("data::", data);
+
       const new_product = new this.productModel(data);
       const result = await new_product.save();
       assert.ok(result, Definer.product_err1);
@@ -89,8 +90,10 @@ class Product {
 
   async updateChosenProductData(id, updated_data, user_id) {
     try {
+      console.log("POST: cont/updateChosenProductData");
       id = shapeIntoMongoseObjectIdn(id);
       user_id = shapeIntoMongoseObjectIdn(user_id);
+
       const result = this.productModel
         .findByIdAndUpdate(
           {

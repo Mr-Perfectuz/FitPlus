@@ -1,9 +1,9 @@
 console.log("Web Serverni boshlash");
 const express = require("express");
 const app = express();
-const cookieParser = require("cookie-parser");
 const router = require("./router");
 const router_bssr = require("./router_bssr");
+const cookieParser = require("cookie-parser");
 
 let session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
@@ -12,10 +12,14 @@ var store = new MongoDBStore({
   collection: "sessions",
 });
 
+//1 Kirish codlari
 app.use(express.static("public"));
+//json formatdagi data ni objectga exchage qilish
 app.use(express.json());
+// html formdan qabul qilinadigan data larni serverga kiritish uchun
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
 //2 Session codlari
 app.use(
   session({
@@ -33,12 +37,14 @@ app.use(function (req, res, next) {
   res.locals.user = req.session.user;
   next();
 });
+//3 Views codelari
 
+// ejs orqali backend ni ichida frontend ni yashash
 app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4 Routing code
-app.use("/", router);
 app.use("/fitPlus", router_bssr);
+app.use("/", router);
 
 module.exports = app;

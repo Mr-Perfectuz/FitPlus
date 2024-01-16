@@ -2,6 +2,7 @@ const express = require("express");
 const router_bssr = express.Router();
 const gymController = require("./controllers/gymController");
 const productController = require("./controllers/productController");
+const uploader_product = require("./utils/upload-multer")("products");
 
 /****************************
  *        BSSR EJS          *
@@ -27,7 +28,7 @@ router_bssr.get("/products/menu", gymController.getMyGYMProducts);
 router_bssr.post(
   "/products/create",
   gymController.validateAuthGYM,
-  // productUploader.array("product_images", 5), // Use productUploader here
+  uploader_product.array("product_images", 5), // Use productUploader here
   productController.addNewProduct
 );
 

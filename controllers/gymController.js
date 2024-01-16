@@ -85,7 +85,7 @@ gymController.checkSessions = (req, res) => {
 // VALIDATION
 
 gymController.validateAuthGYM = (req, res, next) => {
-  if (req.session?.user?.mb_type === "GYM") {
+  if (req.session?.user?.user_type === "GYM") {
     req.user = req.session.user;
     next();
   } else {

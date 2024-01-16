@@ -81,3 +81,30 @@ gymController.checkSessions = (req, res) => {
     res.json({ state: "fail", message: "You are not authenticated !" });
   }
 };
+
+// VALIDATION
+
+gymController.validateAuthGYM = (req, res, next) => {
+  if (req.session?.user?.mb_type === "GYM") {
+    req.user = req.session.user;
+    next();
+  } else {
+    res.json({
+      state: "fail",
+      message: "only authenticated members are allowed",
+    });
+  }
+};
+
+gymController.getMyGYMProducts = async (req, res) => {
+  try {
+    console.log("GET: cont/getMyGYMProducts ");
+    const product = new Product();
+    const data = await product.getAllProductDataResto(res.locals.member);
+    console.log(data);
+    res.render("gym-menu", { gym_data: data });
+  } catch (err) {
+    console.log("ERROR, cont/getMyGYMProducts", err.message);
+    res.redirect("/resto");
+  }
+};

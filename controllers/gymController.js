@@ -1,14 +1,17 @@
 const User = require("../models/User");
+const Product = require("../models/Product");
 
 let gymController = module.exports;
 
-gymController.getMygymData = (req, res) => {
+gymController.getMygymProducts = async (req, res) => {
   try {
     console.log("GET cont.getMygymData");
-    res.render("gym-menu");
+    const product = new Product();
+    const data = await product.getAllProductDataGym(res.locals.user);
+    res.render("gym-menu", { gym_data: data });
   } catch (err) {
-    res.json({ state: "fail", message: err.message });
-    console.log(err.message);
+    console.log("ERROR, cont/getMygymData", err.message);
+    res.redirect("/fitPlus");
   }
 };
 

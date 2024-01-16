@@ -20,7 +20,7 @@ router_bssr
 router_bssr.get("/logout", gymController.logoutProcess);
 router_bssr.get("/check-me", gymController.checkSessions);
 
-router_bssr.get("/services/menu", gymController.getMygymData);
+router_bssr.get("/services/menu", gymController.getMygymProducts);
 
 // products
 router_bssr.get("/products/menu", gymController.getMyGYMProducts);

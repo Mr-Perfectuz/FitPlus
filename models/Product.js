@@ -58,7 +58,7 @@ class Product {
     }
   }
 
-  async getAllProductDataResto(member) {
+  async getAllProductDataGym(member) {
     try {
       member._id = shapeIntoMongoseObjectIdn(member._id);
       const result = await this.productModel.find({

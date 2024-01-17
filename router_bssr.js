@@ -9,6 +9,8 @@ const uploader_product = require("./utils/upload-multer")("products");
  ****************************/
 
 // user realated routers
+router_bssr.get("/", gymController.home);
+
 router_bssr
   .get("/sign-up", gymController.getsignupMygym)
   .post("/sign-up", gymController.signupProcess);

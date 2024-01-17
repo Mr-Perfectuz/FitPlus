@@ -3,6 +3,18 @@ const Product = require("../models/Product");
 
 let gymController = module.exports;
 
+//home
+gymController.home = async (req, res) => {
+  try {
+    console.log("GET cont.home");
+    console.log("GET: cont/home ");
+    res.render("home-page");
+  } catch (err) {
+    res.json({ state: "ERROR", message: err.message });
+    console.log("fail, cont/home", err.message);
+  }
+};
+
 gymController.getMygymProducts = async (req, res) => {
   try {
     console.log("GET cont.getMygymData");

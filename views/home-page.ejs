@@ -1,58 +1,55 @@
 <%- include('includes/header') %>
 <link rel="stylesheet" href="./css/home.css">
-<style>
-  
 
-</style>
-<body>
-    <div class="groupName">
-      <ul class="nav justify-content-center">
+<body >
+    <div class="gradient-background" >
+        <div >
+        <ul class="nav justify-content-center">
 
-        <li class="nav-item" style="cursor: pointer; font-size: xx-large">
-          <a class="nav-link active " href="/fitPlus">Home</a>
-        </li>
+            <li class="nav-item" style="cursor: pointer; font-size: xx-large">
+        
+            <a class="custom-btn btn-3 " href="/fitPlus"><span class="btn_span">Home</span></a>
+            </li>
 
-        <% if(!user) { %>
-          <li class="nav-item" style="cursor: pointer; font-size: xx-large">
-            <a class="nav-link  " href="/fitPlus/sign-up">signup</a>
-          </li>
-          <li class="nav-item" style="cursor: pointer; font-size: xx-large">
-            <a class="nav-link  " href="/fitPlus/login">Login</a>
-          </li>
+            <% if(!user) { %>
+            <li class="nav-item" style="cursor: pointer; font-size: xx-large">
+                <a class="custom-btn btn-3  " href="/fitPlus/sign-up"><span class="btn_span">Sign up</span></a>
+            </li>
+            <li class="nav-item" style="cursor: pointer; font-size: xx-large">
+                <a class="custom-btn btn-3  " href="/fitPlus/login"><span class="btn_span">Login</span></a>
+            </li>
 
-        <% } else if(user.user_type === 'ADMIN') { %>
-          <li class="nav-item" style="cursor: pointer; font-size: xx-large">
-            <a class="nav-link  " href="/fitPlus/all-restaurant">All GYM</a>
-          </li>
-          <li class="nav-item" style="cursor: pointer; font-size: xx-large"
-           onclick="return confirm('Do you want to logout ?')">
-            <a class="nav-link  " href="/fitPlus/logout">Logout</a>
-          </li>
+            <% } else if(user.user_type === 'ADMIN') { %>
+            <li class="nav-item" style="cursor: pointer; font-size: xx-large">
+                <a class="custom-btn btn-3  " href="/fitPlus/all-restaurant"><span class="btn_span">MY GYM</span></a>
+            </li>
+            <li class="nav-item" style="cursor: pointer; font-size: xx-large"
+            onclick="return confirm('Do you want to logout ?')">
+                <a class="custom-btn btn-3  " href="/fitPlus/logout"><span class="btn_span">Logout</span></a>
+            </li>
 
-        <% } else { %>
-          <li class="nav-item" style="cursor: pointer; font-size: xx-large">
-            <a class="nav-link  " href="/fitPlus/products/menu">My GYM</a>
-          </li>
-          <li class="nav-item" style="cursor: pointer; font-size: xx-large"
-           onclick="return confirm('Do you want to logout ?')">
-            <a class="nav-link  " href="/fitPlus/logout">Logout</a>
-          </li>
+            <% } else { %>
+            <li class="nav-item" style="cursor: pointer; font-size: xx-large">
+                <a class="custom-btn btn-3  " href="/fitPlus/products/menu"><span class="btn_span">MY GYM</span></a>
+            </li>
+            <li class="nav-item" style="cursor: pointer; font-size: xx-large"
+            onclick="return confirm('Do you want to logout ?')">
+                <a class="custom-btn btn-3 " href="/fitPlus/logout"><span class="btn_span">Logout</span></a>
+            </li>
 
-        <% }%>
+            <% }%>
 
-      </ul>
-    </div>
-    <div>
-        <p class="text animation">Welcome to FitPlus</p>
-  
-    </div>
+        </ul>
+         <p class="text animation">Welcome to FitPlus . . . </p>
         </div>
 
+
+    </div>
+</body>
     <script>
 
 
 
     </script>
-</body>
 
 <%- include('includes/footer') %>

@@ -9,7 +9,7 @@ productController.getAllProducts = async (req, res) => {
     console.log("POST: cont/getAllProducts");
 
     const product = new Product();
-    const result = await product.getAllProductsData(req.member, req.body);
+    const result = await product.getAllProductsData(req.user, req.body);
     res.json({ state: "success", data: result });
   } catch (err) {
     res.json({ state: "fail", message: err.message });

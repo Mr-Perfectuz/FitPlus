@@ -21,7 +21,7 @@ class User {
         console.log(mongo_error);
         throw new Error(Definer.mongo_val_error);
       }
-      result.mb_password = "";
+      result.user_password = "";
       return result;
     } catch (err) {
       throw err;
@@ -29,6 +29,7 @@ class User {
   }
   async loginData(input) {
     try {
+      console.log("loginData input:", input);
       const result = await this.userModel
         .findOne(
           { user_nick: input.user_nick },

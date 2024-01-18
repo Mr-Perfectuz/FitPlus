@@ -15,7 +15,7 @@ gymController.home = async (req, res) => {
   }
 };
 
-gymController.getMygymProducts = async (req, res) => {
+gymController.getMyGymProducts = async (req, res) => {
   try {
     console.log("GET cont.getMygymData");
     const product = new Product();
@@ -71,9 +71,12 @@ gymController.loginProcess = async (req, res) => {
     const data = req.body;
     const user = new User();
     const result = await user.loginData(data);
+    console.log("data::", data);
     req.session.user = result;
     req.session.save(function () {
-      res.redirect("/fitPlus/services/menu");
+      result.user_type === "ADMIN"
+        ? res.redirect("/fitPlus/all-restaurant")
+        : res.redirect("/fitPlus/products/menu");
     });
   } catch (err) {
     res.json({ state: "fail", message: err.message });
@@ -106,20 +109,7 @@ gymController.validateAuthGYM = (req, res, next) => {
   } else {
     res.json({
       state: "fail",
-      message: "only authenticated members are allowed",
+      message: "only authenticated users are allowed",
     });
-  }
-};
-
-gymController.getMyGYMProducts = async (req, res) => {
-  try {
-    console.log("GET: cont/getMyGYMProducts ");
-    const product = new Product();
-    const data = await product.getAllProductDataResto(res.locals.user);
-    console.log(data);
-    res.render("gym-menu", { gym_data: data });
-  } catch (err) {
-    console.log("ERROR, cont/getMyGYMProducts", err.message);
-    res.redirect("/resto");
   }
 };

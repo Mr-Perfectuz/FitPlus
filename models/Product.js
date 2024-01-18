@@ -38,13 +38,13 @@ class Product {
     }
   }
 
-  async getChosenProductData(member, id) {
+  async getChosenProductData(user, id) {
     try {
       id = shapeIntoMongoseObjectIdn(id);
 
-      if (member) {
-        const member_obj = new User();
-        await member_obj.viewChosenItemByMember(member, id, "product");
+      if (user) {
+        const user_obj = new User();
+        await user_obj.viewChosenItemByMember(user, id, "product");
       }
 
       const result = await this.productModel
@@ -58,11 +58,11 @@ class Product {
     }
   }
 
-  async getAllProductDataGym(member) {
+  async getAllProductDataGym(user) {
     try {
-      member._id = shapeIntoMongoseObjectIdn(member._id);
+      user._id = shapeIntoMongoseObjectIdn(user._id);
       const result = await this.productModel.find({
-        gym_user_id: member._id,
+        gym_user_id: user._id,
       });
       assert.ok(result, Definer.general_err1);
       return result;

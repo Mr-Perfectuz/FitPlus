@@ -1,31 +1,36 @@
 <%- include('includes/header') %>
 <link rel="stylesheet" href="/css/login.css">
-<body>
-  <form class="login_container" action="/fitPlus/login" method="POST">
-    <div class="login_frame" style="height: 460px">
+<body class="wrapper">
 
-      <div class="login_top">
-        <span>Saytga Kirish</span>
-        <div>Bosh Sahifaga qaytish <a href="/fitPlus" style="color: #6440fb">Home</a></div>
-        <p>Ro'yhatdan o'tmaganmisiz ? <a href="/fitPlus/sign-up" style="color: #6440fb">Ro'yhatdan o'tish</a></p>
+<div >
+	<div class="container">
+		<h1>Welcome to FitPlus</h1>
+         <div class="login_top">
       </div>
-
-      <div class="login_input_frame">
-        <div class="login_input_container">
-          <label >Foydalanuvchining ismi:</label>
-          <input type="text" name="user_nick"  placeholder="Foydalanuvchining ismi" value="" required>
-        </div>
-        <div class="login_input_container">
-          <label > Passwordni kiriting:</label>
-          <input type="password" name="user_password"  placeholder="password" value="" required>
-        </div>
-      </div>
-
-      <button class="login_btn btn" name="login" type="submit">Kirish</button>
-
-    </div>
-  </form>
-
-</body>
+		<form class="form" action="/fitPlus/login" method="POST">
+			<input name="user_nick"  type="text" placeholder="Username">
+			<input type="password"  name="user_password" placeholder="Password">
+			<button  name="login"  type="submit" id="login-button">Login</button>
+             <div class="home_wrapper">
+                <a href="/fitPlus" >Home</a>
+                 <a href="/fitPlus/sign-up" >Register</a>
+            </div>
+       
+		</form>
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
 
 <%- include('includes/footer') %>

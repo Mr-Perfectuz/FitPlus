@@ -19,12 +19,12 @@
 
         <div class="sign_up_frame">
           <label  for="">UserName </label>
-          <input class="mb_nick" type="text" name="mb_nick"  placeholder=" UserName " value="" required>
+          <input class="user_nick" type="text" name="user_nick"  placeholder=" UserName " value="" required>
         </div>
 
         <div class="sign_up_frame">
           <label  for="">Phone Number </label>
-          <input class="mb_phone" type="text" name="mb_phone"  placeholder="Phone Number" value="" required>
+          <input class="user_phone" type="text" name="user_phone"  placeholder="Phone Number" value="" required>
         </div>
 
         <div></div>
@@ -33,12 +33,12 @@
 
         <div class="sign_up_frame">
           <label  for="">Password</label>
-          <input class="mb_password" type="password" name="mb_password"  placeholder="Password " value="" required>
+          <input class="user_password" type="password" name="user_password"  placeholder="Password " value="" required>
         </div>
 
         <div class="sign_up_frame">
           <label  for="">Confirm Password</label>
-          <input class="mb_confirm_password" type="password" name="mb_confirm_password"  placeholder="Confirm Password" value="" required>
+          <input class="user_confirm_password" type="password" name="user_confirm_password"  placeholder="Confirm Password" value="" required>
         </div>
 
         <div></div>
@@ -52,7 +52,7 @@
             <div class="filebox bs3-primary preview-image">
               <input class="upload_name" type="text" value="Upload image" disabled="disabled">
               <label for="input_file">Upload image</label>
-              <input type="file" id="input_file" name="restaurant_img"  placeholder="Rasmni yuklang" class="upload-hidden form-control-file restaurant_img" >
+              <input type="file" id="input_file" name="gym_img"  placeholder="Rasmni yuklang" class="upload-hidden form-control-file gym_img" >
             </div>
 
             <p class="thumbnail_desc">Upload the images here <br>Note: .jpg, .jpeg yoki .png <br>The image must be in these formats</p>
@@ -103,26 +103,26 @@
 
 
   function validateSignUpForm(){
-    const mb_nick = $(".mb_nick").val();
-    const mb_phone = $(".mb_phone").val();
-    const mb_password = $(".mb_password").val();
-    const mb_confirm_password = $(".mb_confirm_password").val();
-    const restaurant_img = $(".restaurant_img").get(0).files[0] ?? null;
+    const user_nick = $(".user_nick").val();
+    const user_phone = $(".user_phone").val();
+    const user_password = $(".user_password").val();
+    const user_confirm_password = $(".user_confirm_password").val();
+    const gym_img = $(".gym_img").get(0).files[0] ?? null;
 
     if(
-      mb_nick == "" ||
-      mb_phone == "" ||
-      mb_password == "" ||
-      mb_confirm_password == ""
+      user_nick == "" ||
+      user_phone == "" ||
+      user_password == "" ||
+      user_confirm_password == ""
     )
     {
       alert("Iltimos barcha ma'lumotlarni to'liq kiriting");
       return false;
-  } else if(mb_password !== mb_confirm_password){
+  } else if(user_password !== user_confirm_password){
       alert("Iltimos passwordni to'g'ri kiriting");
       return false;
   }
-    if(! restaurant_img){
+    if(! gym_img){
       alert("Iltimos rasmni yuklang ! ");
       return false;
     }

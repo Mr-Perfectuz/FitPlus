@@ -14,7 +14,11 @@ router_bssr.get("/", gymController.home);
 
 router_bssr
   .get("/sign-up", gymController.getsignupMygym)
-  .post("/sign-up", gymController.signupProcess);
+  .post(
+    "/sign-up",
+    uploader_members.single("gym_img"),
+    gymController.signupProcess
+  );
 
 router_bssr
   .get("/login", gymController.getloginMygym)

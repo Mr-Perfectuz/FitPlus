@@ -1,5 +1,7 @@
 const User = require("../models/User");
 const Product = require("../models/Product");
+const assert = require("assert");
+const Definer = require("../lib/mistake");
 
 let gymController = module.exports;
 
@@ -41,12 +43,17 @@ gymController.getsignupMygym = async (req, res) => {
 gymController.signupProcess = async (req, res) => {
   try {
     console.log("POST cont.signupProcess");
-    const data = req.body;
-    const user = new User();
-    const new_user = await user.signupData(data);
+    assert(req.file, Definer.general_err3);
 
-    req.session.user = new_user;
-    res.redirect("/fitPlus/services/menu");
+    let new_user = req.body;
+    new_user.user_type = "GYM";
+    new_user.user_image = req.file.path;
+    const user = new User();
+    const result = await user.signupData(new_user);
+
+    assert(result, Definer.general_err1);
+    req.session.user = result;
+    res.redirect("/fitPlus/products/menu");
   } catch (err) {
     res.json({ state: "fail", message: err.message });
     console.log(err.message);

@@ -2,6 +2,7 @@ const Definer = require("../lib/mistake");
 const UserModel = require("../schema/user.model");
 const assert = require("assert");
 const bcrypt = require("bcryptjs");
+const { shapeIntoMongoseObjectIdn } = require("../lib/config");
 
 class User {
   constructor() {
@@ -13,6 +14,7 @@ class User {
       let result;
       const salt = await bcrypt.genSalt();
       input.user_password = await bcrypt.hash(input.user_password, salt);
+
       const new_user = new this.userModel(input);
 
       try {

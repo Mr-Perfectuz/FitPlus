@@ -10,20 +10,20 @@
 
     <div class="login_frame" style="width: 650px; height: 730px;">
       <div class="login_top">
-        <span class="txt">Register</span>
-        <div class="txt">Go back to Home <a href="/fitPlus" style="color: #6440fb">Home</a></div>
-        <p class="txt">Already Registered ? <a href="/fitPlus/login" style="color: #6440fb">Login</a></p>
+        <span>Register</span>
+        <div >Go back to Home <a href="/fitPlus" style="color: #6440fb">Home</a></div>
+        <p >Already Registered ? <a href="/fitPlus/login" style="color: #6440fb">Login</a></p>
       </div>
 
       <div class="sign_input_frame">
 
         <div class="sign_up_frame">
-          <label class="txt" for="">UserName </label>
+          <label  for="">UserName </label>
           <input class="mb_nick" type="text" name="mb_nick"  placeholder=" UserName " value="" required>
         </div>
 
         <div class="sign_up_frame">
-          <label class="txt" for="">Phone Number </label>
+          <label  for="">Phone Number </label>
           <input class="mb_phone" type="text" name="mb_phone"  placeholder="Phone Number" value="" required>
         </div>
 
@@ -32,12 +32,12 @@
       <div class="sign_input_frame">
 
         <div class="sign_up_frame">
-          <label class="txt" for="">Password</label>
+          <label  for="">Password</label>
           <input class="mb_password" type="password" name="mb_password"  placeholder="Password " value="" required>
         </div>
 
         <div class="sign_up_frame">
-          <label class="txt" for="">Confirm Password</label>
+          <label  for="">Confirm Password</label>
           <input class="mb_confirm_password" type="password" name="mb_confirm_password"  placeholder="Confirm Password" value="" required>
         </div>
 
@@ -48,7 +48,7 @@
         <div class="media_frame">
           <img class="upload_img_frame" src="/images/default_gym.jpeg" alt="sign up images">
           <div class="upload_container">
-            <span class="txt" class="media_text">GYM photo</span>
+            <span class="media_text">GYM photo</span>
             <div class="filebox bs3-primary preview-image">
               <input class="upload_name" type="text" value="Upload image" disabled="disabled">
               <label for="input_file">Upload image</label>
@@ -83,7 +83,7 @@
 
 
           if(!validImageTypes.includes(fileType)){
-              alert("Iltimos ruhsat etilgan formatdagi rasmlarni yuklang: jpg, jpeg va png");
+              alert("Please double check the image format : jpg, jpeg va png");
           } else{
             if(uploading_file){
               console.log(URL.createObjectURL(uploading_file));

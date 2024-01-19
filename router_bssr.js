@@ -3,12 +3,13 @@ const router_bssr = express.Router();
 const gymController = require("./controllers/gymController");
 const productController = require("./controllers/productController");
 const uploader_product = require("./utils/upload-multer")("products");
+const uploader_members = require("./utils/upload-multer")("users");
 
 /****************************
  *        BSSR EJS          *
  ****************************/
 
-// user realated routers
+// user realated routersc
 router_bssr.get("/", gymController.home);
 
 router_bssr

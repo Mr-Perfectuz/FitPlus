@@ -43,4 +43,9 @@ router_bssr.post(
   productController.updateChosenProduct
 );
 
+router_bssr.get(
+  "/all-gyms",
+  gymController.validateAdmin,
+  gymController.getAllGym
+);
 module.exports = router_bssr;

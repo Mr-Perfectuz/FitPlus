@@ -1,4 +1,4 @@
-console.log("Web Serverni boshlash");
+console.log("Start the WebServer");
 const express = require("express");
 const app = express();
 const router = require("./router");

@@ -1,0 +1,104 @@
+<%- include('includes/header') %>
+
+<link rel="stylesheet" type="text/css" href="/css/menu.css">
+
+<body>
+
+  <div class="main_container resto">
+    <div class="group_name">
+      <ul class="nav justify-content-center">
+
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link active " href="/fitPlus">Home</a>
+        </li>
+          <li class="nav-item" style="cursor: pointer">
+            <a class="nav-link  " href="/fitPlus/all-gyms">GYM</a>
+          </li>
+          <li class="nav-item" style="cursor: pointer ">
+            <a class="nav-link  " href="/fitPlus/logout">Logout</a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="restaurant_menu_frame">
+      <div class="rastaurant_container">
+          <div class="resto_table">
+            <span class="new_dish_txt"> All The Gym list</span>
+
+            <table class="table table-hover table-sm">
+              <thead class="thead-light">
+
+                <tr class="thead-light">
+                  <th scope="col">T/r</th>
+                  <th scope="col">Name </th>
+                  <th scope="col">Phone Number</th>
+                  <th scope="col">GYM TOP</th>
+                  <th scope="col">GYM Status</th>
+                </tr>
+
+              </thead>
+
+            <% gym_data.map(function(value, key) { %>
+                <tbody style="background: #fff;">
+                  <td> <%= key + 1 %></td>
+                  <td><%= value.user_nick %></td>
+                  <td><%= value.user_phone %></td>
+                  <td style="width: 13%;">
+                  <label class="switch">
+                    <input class="user_top" type="checkbox" id="<%= value._id %>"
+                    <%= value.user_top === "Y" ? 'checked' : "" %> />
+                    <span class="slider round"></span>
+                  </label></td>
+
+                  <td style="width: 13%;">
+
+                    <select class="user_status spec_select " id="<%= value._id %>">
+                      <option value="ONPAUSE" <%= value.user_status === "ONPAUSE" ? 'selected' : "" %> >ONPAUSE</option>
+                      <option value="ACTIVE"  <%= value.user_status === "ACTIVE" ? 'selected' : "" %> >ACTIVE</option>
+                      <option value="DELETED" <%= value.user_status === "DELETED" ? 'selected' : "" %> > DELETED</option>
+                    </select>
+                  </td>
+
+                </tbody>
+              <% }); %> %>
+
+            </table>
+
+
+          </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    console.log("gym_data", gym_data);
+
+$(function() {
+  $(".user_top").on('change', function(e){
+      const id = e.target.id;
+      const user_top = e.target.checked ? 'Y' : 'N';
+      axios.post('/fitPlus/all-restaurant/edit', {id: id, user_top: user_top}).then(response =>{
+        const result = response.data;
+        if(result.state === "success" ) alert("successfully updated");
+        else alert(result.message);
+      }).catch(err => console.log(err));
+    })
+
+  $(".user_status").on('change', function(e){
+      const id = e.target.id;
+      const user_status =  $(`#${id}.user_status`).val();
+      console.log("user_status:", user_status);
+
+      axios.post('/fitPlus/all-restaurant/edit', {id: id, user_status: user_status}).then(response =>{
+        const result = response.data;
+        if(result.state === "success" ) alert("successfully updated");
+        else alert(result.message);
+      }).catch(err => console.log(err));
+    })
+})
+
+  </script>
+
+</body>
+<%- include('includes/footer') %>

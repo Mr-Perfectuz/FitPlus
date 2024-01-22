@@ -21,11 +21,11 @@
 
             <% } else if(user.user_type === 'ADMIN') { %>
             <li class="nav-item" style="cursor: pointer; font-size: xx-large">
-                <a class="custom-btn btn-3  " href="/fitPlus/all-restaurant"><span class="btn_span">MY GYM</span></a>
+                <a class="custom-btn btn-3  " href="/fitPlus/all-gyms"><span class="btn_span">MY GYM</span></a>
             </li>
             <li class="nav-item" style="cursor: pointer; font-size: xx-large"
             onclick="return confirm('Do you want to logout ?')">
-                <a class="custom-btn btn-3  " href="/fitPlus/logout"><span class="btn_span">Logout</span></a>
+                <a class="custom-btn btn-3  " href="/fitPlus/logout"><span class="btn_span"  >Logout</span></a>
             </li>
 
             <% } else { %>
@@ -34,7 +34,7 @@
             </li>
             <li class="nav-item" style="cursor: pointer; font-size: xx-large"
             onclick="return confirm('Do you want to logout ?')">
-                <a class="custom-btn btn-3 " href="/fitPlus/logout"><span class="btn_span">Logout</span></a>
+                <a class="custom-btn btn-3 " href="/fitPlus/logout" ><span onclick="return confirm('Do you want to logout ?')" class="btn_span">Logout</span></a>
             </li>
 
             <% }%>

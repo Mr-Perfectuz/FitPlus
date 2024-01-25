@@ -29,7 +29,7 @@
             <th scope="col">T/r</th>
             <th scope="col">Product name</th>
             <th scope="col">Product type</th>
-            <th scope="col">Product amount</th>
+            <th scope="col">Product size</th>
             <th scope="col">Product price</th>
             <th scope="col">Product remaining amount</th>
             <th scope="col">Prodc status</th>
@@ -70,7 +70,7 @@
         <div>
           <div class="long_input">
             <label >Product Name</label>
-            <input type="text" placeholder="Taom nomi" name="product_name"  class="product_name"/>
+            <input type="text" placeholder="Product name" name="product_name"  class="product_name"/>
           </div>
           <input name="product_status" value="PAUSED" class="product_status" hidden>
         </div>
@@ -78,60 +78,59 @@
         <div class="half_input_frame">
           <div class="half_input">
             <label >Product price</label>
-            <input type="number" placeholder="Taom narxi" name="product_price"  class="product_price"/>
+            <input type="number" placeholder="Product price" name="product_price"  class="product_price"/>
           </div>
           <div class="half_input">
-            <label >Taom qoldiq miqdor</label>
-            <input type="number" placeholder="Taom mavjud miqdori" name="product_left_cnt"  class="product_left_cnt"/>
+            <label >Remaining products</label>
+            <input type="number" placeholder="Remaining Products" name="product_left_cnt"  class="product_left_cnt"/>
           </div>
         </div>
 
         <div class="half_input_frame">
 
           <div class="half_input">
-            <label >Taom Turi</label>
+            <label >Product Type</label>
             <select name="product_collection" class="product_collection">
-              <option value="dish" selected>Taom</option>
-              <option value="salad" >Salad</option>
-              <option value="desert" >Desert</option>
-              <option value="drink" >Ichimlik</option>
-              <option value="etc" >Boshqa</option>
+              <option value="WEAR" selected>WEAR</option>
+              <option value="EQUIPMENT" >EQUIPMENT</option>
+              <option value="ACCESSORIES" >ACCESSORIES</option>
+              <option value="TOOLS" >TOOLS</option>
+              <option value="SUPPLEMETS" >SUPPLEMETS</option>
             </select>
           </div>
 
 
 
           <div class="half_input" id="product_size">
-            <label >Taom Hajmi</label>
+            <label >Product size</label>
             <select name="product_size" class="product_size">
-              <option value="small" >Kichkina</option>
-              <option value="normal" selected>O'rtacha</option>
-              <option value="large" >Katta</option>
-              <option value="set" >Set</option>
+              <option value="small" >small</option>
+              <option value="normal" selected>normal</option>
+              <option value="large" >large</option>
             </select>
           </div>
 
 
 
           <div class="half_input" id="product_volume" style="display: none;">
-            <label >Ichimlik Hajmi</label>
+            <label >Product volume</label>
             <select name="product_volume" class="product_volume">
-              <option value="0.5" >0.5 litr</option>
-              <option value="1" selected>1 litr</option>
-              <option value="1.5" >1.5 litr</option>
-              <option value="2" >2 litr</option>
+              <option value="0.5" >1 liter</option>
+              <option value="5" selected>5 liter</option>
+              <option value="10" >10 liter</option>
+              <option value="20" >20 liter</option>
             </select>
           </div>
 
         </div>
 
         <div class="long_input">
-          <label>Taom haqida</label>
+          <label>Product Description</label>
           <textarea name="product_description" class="product_description" ></textarea>
         </div>
 
         <div class="img_frame">
-          <label >Taom Rasmlari</label>
+          <label >Product Images</label>
           <div class="media_frame">
             <div class="upload_img_box">
               <img src="/images/uploads.png" alt="image" class="1", id="image_section_1">

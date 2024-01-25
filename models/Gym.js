@@ -6,7 +6,7 @@ const User = require("./User");
 
 class Gym {
   constructor() {
-    this.memberModel = UserModel;
+    this.userModel = UserModel;
   }
 
   async getRestaurantsData(member, data) {
@@ -79,7 +79,7 @@ class Gym {
 
   async getAllRestaurantsData() {
     try {
-      const result = await this.memberModel
+      const result = await this.userModel
         .find({
           user_type: "GYM",
         })
@@ -90,10 +90,11 @@ class Gym {
       throw error;
     }
   }
-  async updateRestaurantByAdminData(update_data) {
+
+  async updateGymByAdminData(update_data) {
     try {
       const id = shapeIntoMongoseObjectIdn(update_data?.id);
-      const result = await this.memberModel
+      const result = await this.userModel
         .findByIdAndUpdate({ _id: id }, update_data, {
           runValidators: true,
           lean: true,

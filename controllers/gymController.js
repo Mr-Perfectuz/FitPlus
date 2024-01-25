@@ -152,3 +152,15 @@ gymController.getAllGym = async (req, res) => {
     res.json({ state: "fail", message: err.message });
   }
 };
+
+gymController.updateGymByAdmin = async (req, res) => {
+  try {
+    console.log(" POST cont/updateGymByAdmin");
+    const gym = new Gym();
+    const result = await gym.updateGymByAdminData(req.body);
+    await res.json({ state: "success", data: result });
+  } catch (err) {
+    console.log("ERROR: cont/updateGymByAdmin", err.message);
+    res.json({ state: "fail", message: err.message });
+  }
+};

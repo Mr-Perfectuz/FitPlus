@@ -61,9 +61,11 @@ class Product {
   async getAllProductDataGym(user) {
     try {
       user._id = shapeIntoMongoseObjectIdn(user._id);
-      const result = await this.productModel.find({
-        gym_user_id: user._id,
-      });
+      const result = await this.productModel
+        .find({
+          gym_user_id: user._id,
+        })
+        .exec();
       console.log("result before", result);
       assert.ok(result, Definer.general_err1);
       return result;

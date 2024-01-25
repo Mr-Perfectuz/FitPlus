@@ -48,4 +48,11 @@ router_bssr.get(
   gymController.validateAdmin,
   gymController.getAllGym
 );
+
+router_bssr.post(
+  "/all-gyms/edit",
+  gymController.validateAdmin,
+  gymController.updateGymByAdmin
+);
+
 module.exports = router_bssr;
